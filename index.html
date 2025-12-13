@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>衡水衡丰摩擦材料有限公司 - 专业刹车片制造商</title>
+    <meta name="description" content="衡水衡丰摩擦材料有限公司成立于2015年，专业生产刹车摩擦材料，为全球客户提供高品质刹车解决方案">
+    <meta name="keywords" content="刹车片,摩擦材料,刹车系统,衡丰,衡水,汽车配件">
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 语言切换按钮 */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(220, 53, 69, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language-switcher:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(220, 53, 69, 0.4);
+        }
+
+        .lang-btn {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 50px;
+        }
+
+        .lang-btn::before {
+            content: "🌐";
+            font-size: 16px;
+        }
+
+        .lang-btn:hover {
+            background: linear-gradient(135deg, #c82333, #a71e2a);
+        }
+
+        /* 顶部通知栏 */
+        .top-banner {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, #dc3545, #a71e2a);
+            color: white;
+            padding: 20px 0 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 14px;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info .icon {
+            font-size: 16px;
+        }
+
+        nav {
+            background: rgba(0,0,0,0.2);
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* 主要内容样式 */
+        .hero {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.9), rgba(167, 30, 42, 0.9)),
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+            background-size: cover;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(220, 53, 69, 0.8), rgba(40, 167, 69, 0.8));
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background: linear-gradient(45deg, rgba(220, 53, 69, 0.8), rgba(40, 167, 69, 0.8)); }
+            50% { background: linear-gradient(45deg, rgba(40, 167, 69, 0.8), rgba(32, 201, 151, 0.8)); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 40px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 35px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+            border: 2px solid transparent;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #218838, #1e7e34);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: #dc3545;
+            display: inline-block;
+            padding-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #dc3545, #28a745);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-image {
+            flex: 1;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 产品展示样式 */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        .product-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #dc3545;
+            font-weight: 700;
+        }
+
+        .product-specs {
+            margin: 25px 0;
+            font-size: 15px;
+        }
+
+        .product-specs p {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .product-specs strong {
+            color: #dc3545;
+            font-weight: 600;
+        }
+
+        /* 特性区域 */
+        .features {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-item p {
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #dc3545;
+            font-weight: 700;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-column ul li:hover {
+            transform: translateX(10px);
+        }
+
+        .footer-column a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+
+        .footer-column a:hover {
+            color: #dc3545;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+            font-size: 14px;
+            color: #95a5a6;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .header-main {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .contact-info {
+                text-align: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 5px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 语言切换按钮 -->
+    <div class="language-switcher">
+        <button onclick="window.location.href='en.html'" class="lang-btn">English</button>
+    </div>
+
+    <!-- 顶部通知栏 -->
+    <div class="top-banner">
+        🏭 专业刹车片制造商 | 全球客户信赖品牌 | 质量保证，售后无忧
+    </div>
+
+    <!-- 头部 -->
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <div class="logo">
+                    <div class="logo-icon">衡</div>
+                    <h1>衡水衡丰摩擦材料有限公司</h1>
+                </div>
+                <div class="contact-info">
+                    <p><span class="icon">📞</span> 电话: 0086-318-533690</p>
+                    <p><span class="icon">📱</span> WhatsApp: +8618703287343</p>
+                    <p><span class="icon">📧</span> Email: 1453251963@qq.com</p>
+                    <p><span class="icon">📍</span> 地址: 河北省衡水市青罕镇吴夏庄村</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">公司简介</a></li>
+                    <li><a href="#products">产品目录</a></li>
+                    <li><a href="#composition">刹车片组成</a></li>
+                    <li><a href="#analysis">异常刹车噪音</a></li>
+                    <li><a href="#replacement">更换刹车片</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主横幅 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>专业刹车片制造商</h2>
+            <p>专注摩擦材料研发与生产，为全球客户提供高品质刹车解决方案</p>
+            <a href="#products" class="btn">查看产品</a>
+        </div>
+    </section>
+
+    <!-- 公司简介 -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>公司简介</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>衡水衡丰摩擦材料有限公司</strong>成立于2015年，是一家以刹车摩擦材料及其产品为主导的专业制造商，集研发、生产、销售为一体的摩擦材料新技术企业。</p>
+                    <p>公司拥有<strong>5000平方米</strong>的现代化生产车间，新产品开发速度位居行业前列，确保满足市场对新车型和新产品的需求。</p>
+                    <p>我们始终坚持以质量求生存，以创新求发展，致力于为客户提供安全可靠的刹车解决方案。产品广泛应用于乘用车、商用车等多种车型。</p>
+                    <p>衡丰用心生产，注重质量，关注客户交付满意度，客户的使命必须实现。我们拥有数十年的制造和出口经验，可以解决您在设计、技术、制造订单、运输等方面的问题。</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="现代化生产车间" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品目录 -->
+    <section id="products" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>产品目录</h2>
+            </div>
+            <div class="products-grid">
+                <!-- 产品1 -->
+                <div class="product-card">
+                    <div class="product-badge">热销产品</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1619413517417-44d5b5d2b780?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="刹车片总成" />
+                    </div>
+                    <div class="product-info">
+                        <h3>刹车片总成</h3>
+                        <div class="product-specs">
+                            <p><strong>FMSI:</strong> D1141</p>
+                            <p><strong>位置:</strong> 前轮制动系统</p>
+                            <p><strong>制动系统:</strong> ATE</p>
+                            <p><strong>宽度:</strong> 155.1mm / 156.3mm</p>
+                            <p><strong>高度:</strong> 71.5mm / 78.5mm</p>
+                            <p><strong>厚度:</strong> 20.3mm / 19.6mm</p>
+                        </div>
+                        <a href="#contact" class="btn">立即询价</a>
+                    </div>
+                </div>
+
+                <!-- 产品2 -->
+                <div class="product-card">
+                    <div class="product-badge">高性能</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="高性能刹车片" />
+                    </div>
+                    <div class="product-info">
+                        <h3>高性能刹车片</h3>
+                        <div class="product-specs">
+                            <p><strong>特点:</strong> 专为高性能车辆设计</p>
+                            <p><strong>优势:</strong> 低噪音，高耐磨性</p>
+                            <p><strong>标准:</strong> 符合国际质量标准</p>
+                            <p><strong>应用:</strong> 赛道、性能改装</p>
+                        </div>
+                        <a href="#contact" class="btn">了解详情</a>
+                    </div>
+                </div>
+
+                <!-- 产品3 -->
+                <div class="product-card">
+                    <div class="product-badge">定制服务</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb364?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="定制刹车片" />
+                    </div>
+                    <div class="product-info">
+                        <h3>定制刹车片</h3>
+                        <div class="product-specs">
+                            <p><strong>服务:</strong> 根据客户需求定制</p>
+                            <p><strong>选择:</strong> 多种摩擦系数可选</p>
+                            <p><strong>适配:</strong> 适用于各种车型</p>
+                            <p><strong>周期:</strong> 快速交付，质量保证</p>
+                        </div>
+                        <a href="#contact" class="btn">定制需求</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特性展示 -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">为什么选择衡丰</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🏭</div>
+                    <h3>现代化工厂</h3>
+                    <p>5000平方米现代化生产车间，先进设备，精密工艺</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔬</div>
+                    <h3>研发实力</h3>
+                    <p>专业研发团队，新产品开发速度行业领先</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <h3>品质保证</h3>
+                    <p>严格质量控制，符合国际标准和认证要求</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌍</div>
+                    <h3>全球服务</h3>
+                    <p>产品远销海外，为全球客户提供专业服务</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 刹车片组成 -->
+    <section id="composition">
+        <div class="container">
+            <div class="section-title">
+                <h2>刹车片组成</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="刹车片结构图" />
+                </div>
+                <div class="about-text">
+                    <p><strong>刹车片</strong>一般由<strong>钢板</strong>、<strong>粘接隔热层</strong>和<strong>摩擦块</strong>组成。</p>
+                    <p><strong>钢板</strong>应进行涂装以防止生锈。涂装工艺使用SMT-4炉温跟踪器检测涂装过程的温度分布，确保产品质量。</p>
+                    <p><strong>隔热层</strong>由不导热的材料组成，目的是隔热和降噪。</p>
+                    <p><strong>摩擦块</strong>由摩擦材料、粘合剂组成，刹车时被挤压在刹车盘或刹车鼓上产生摩擦，从而达到车辆减速和制动的目的。</p>
+                    <p>我们采用先进的生产工艺和严格的质量控制，确保每一片刹车片都符合高标准的安全要求。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 异常刹车噪音分析 -->
+    <section id="analysis" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>异常刹车噪音分析</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>异常刹车噪音</strong>主要是刹车片与刹车盘摩擦产生的声音。</p>
+                    <p>许多车主会发现，在<strong>洗车后或雨后</strong>刚踩刹车时，会有明显的异常噪音。这是因为刹车盘表面生锈或沾有水分，导致摩擦系数发生变化。</p>
+                    <p>我们的刹车片经过特殊设计和材料配比，有效降低异常噪音，提供更平稳的制动体验。</p>
+                    <p><strong>解决方法：</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>轻度行驶时轻踩刹车几次，清除刹车盘表面水分和锈迹</li>
+                        <li>使用优质刹车片，如衡丰品牌的产品</li>
+                        <li>定期检查刹车系统，确保安装正确</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="刹车系统检查" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 何时更换刹车片 -->
+    <section id="replacement">
+        <div class="container">
+            <div class="section-title">
+                <h2>何时更换刹车片</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="刹车片更换" />
+                </div>
+                <div class="about-text">
+                    <p>当刹车片<strong>磨损、老化</strong>或<strong>制动失效</strong>时，必须及时更换，否则可能导致<strong>制动距离变长</strong>、<strong>制动效果降低</strong>，甚至造成<strong>安全隐患</strong>。</p>
+                    <p><strong>更换标准：</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>刹车片厚度<strong>小于3mm</strong>需要更换</li>
+                        <li>出现异常噪音或振动</li>
+                        <li>制动距离明显增加</li>
+                        <li>刹车踏板感觉异常</li>
+                    </ul>
+                    <p>建议定期检查刹车片厚度，并选择适合车型的正品配件，应由<strong>专业人员进行更换</strong>。</p>
+                    <p>我们提供多种型号的优质刹车片，满足不同车型和驾驶需求，确保您的行车安全。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 包装与交付 -->
+    <section id="contact" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+            </div>
+            <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <div>
+                        <h3 style="color: #dc3545; margin-bottom: 20px; font-size: 24px;">📞 联系方式</h3>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>电话：</strong> 0086-318-533690</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>WhatsApp：</strong> +8618703287343</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>邮箱：</strong> 1453251963@qq.com</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>地址：</strong> 河北省衡水市青罕镇吴夏庄村</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #dc3545; margin-bottom: 20px; font-size: 24px;">🏢 公司信息</h3>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>公司名称：</strong> 衡水衡丰摩擦材料有限公司</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>成立时间：</strong> 2015年</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>厂房面积：</strong> 5000平方米</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>主营业务：</strong> 刹车摩擦材料研发生产</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="font-size: 18px; color: #666; margin-bottom: 25px;">
+                        <strong>衡丰用心生产，注重质量，关注客户交付满意度</strong><br>
+                        客户的使命必须实现
+                    </p>
+                    <a href="mailto:1453251963@qq.com" class="btn" style="font-size: 18px; padding: 15px 40px;">
+                        📧 立即联系询价
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于衡丰</h3>
+                    <ul>
+                        <li><a href="#about">公司简介</a></li>
+                        <li><a href="#products">产品目录</a></li>
+                        <li><a href="#composition">刹车片组成</a></li>
+                        <li><a href="#analysis">异常刹车噪音</a></li>
+                        <li><a href="#replacement">更换刹车片</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>产品中心</h3>
+                    <ul>
+                        <li><a href="#products">刹车片总成</a></li>
+                        <li><a href="#products">高性能刹车片</a></li>
+                        <li><a href="#products">定制刹车片</a></li>
+                        <li><a href="#contact">询价服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul>
+                        <li>📞 0086-318-533690</li>
+                        <li>📱 +8618703287343</li>
+                        <li>📧 1453251963@qq.com</li>
+                        <li>📍 河北省衡水市青罕镇吴夏庄村</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 衡水衡丰摩擦材料有限公司 版权所有</p>
+                <p>Hengshui Hengfeng Friction Material Co., Ltd. All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 添加滚动时的导航栏效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(220, 53, 69, 0.95), rgba(167, 30, 42, 0.95))';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #dc3545, #a71e2a)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

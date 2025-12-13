@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hengshui Hengfeng Friction Material Co., Ltd. - Professional Brake Pad Manufacturer</title>
+    <meta name="description" content="Hengshui Hengfeng Friction Material Co., Ltd. established in 2015, specializing in brake friction materials production, providing high-quality braking solutions for global customers">
+    <meta name="keywords" content="brake pads, friction material, brake system, Hengfeng, Hengshui, auto parts, automotive">
+    <style>
+        /* Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", "Arial", sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(220, 53, 69, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language-switcher:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(220, 53, 69, 0.4);
+        }
+
+        .lang-btn {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 50px;
+        }
+
+        .lang-btn::before {
+            content: "🌐";
+            font-size: 16px;
+        }
+
+        .lang-btn:hover {
+            background: linear-gradient(135deg, #c82333, #a71e2a);
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #dc3545, #a71e2a);
+            color: white;
+            padding: 20px 0 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 14px;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info .icon {
+            font-size: 16px;
+        }
+
+        nav {
+            background: rgba(0,0,0,0.2);
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Styles */
+        .hero {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.9), rgba(167, 30, 42, 0.9)),
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+            background-size: cover;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(220, 53, 69, 0.8), rgba(40, 167, 69, 0.8));
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background: linear-gradient(45deg, rgba(220, 53, 69, 0.8), rgba(40, 167, 69, 0.8)); }
+            50% { background: linear-gradient(45deg, rgba(40, 167, 69, 0.8), rgba(32, 201, 151, 0.8)); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 40px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 35px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+            border: 2px solid transparent;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #218838, #1e7e34);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #dc3545;
+            display: inline-block;
+            padding-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #dc3545, #28a745);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-image {
+            flex: 1;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        .product-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-info h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #dc3545;
+            font-weight: 700;
+        }
+
+        .product-specs {
+            margin: 25px 0;
+            font-size: 15px;
+        }
+
+        .product-specs p {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .product-specs strong {
+            color: #dc3545;
+            font-weight: 600;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-item p {
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #dc3545;
+            font-weight: 700;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-column ul li:hover {
+            transform: translateX(10px);
+        }
+
+        .footer-column a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+
+        .footer-column a:hover {
+            color: #dc3545;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+            font-size: 14px;
+            color: #95a5a6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-main {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .contact-info {
+                text-align: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 5px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h2 {
+                font-size: 26px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button onclick="window.location.href='index.html'" class="lang-btn">中文</button>
+    </div>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        🏭 Professional Brake Pad Manufacturer | Trusted Global Brand | Quality Guaranteed
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <div class="logo">
+                    <div class="logo-icon">H</div>
+                    <h1>Hengshui Hengfeng Friction Material Co., Ltd.</h1>
+                </div>
+                <div class="contact-info">
+                    <p><span class="icon">📞</span> Tel: 0086-318-533690</p>
+                    <p><span class="icon">📱</span> WhatsApp: +8618703287343</p>
+                    <p><span class="icon">📧</span> Email: 1453251963@qq.com</p>
+                    <p><span class="icon">📍</span> Add: Wuxiazhuang Village, Qinghan Town, Hengshui City, Hebei Province, China</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#composition">Composition</a></li>
+                    <li><a href="#analysis">Brake Noise</a></li>
+                    <li><a href="#replacement">Replacement</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Professional Brake Pad Manufacturer</h2>
+            <p>Specializing in R&D and production of friction materials, providing high-quality braking solutions for global customers</p>
+            <a href="#products" class="btn">View Products</a>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>Hengshui Hengfeng Friction Material Co., Ltd.</strong> was established in 2015, specializing in the production of brake friction materials and related products. It is a new technology enterprise integrating R&D, production, and sales of friction materials.</p>
+                    <p>The company has a <strong>modern production workshop of 5,000 square meters</strong>. The speed of new product development is among the best in the industry, ensuring market demand for new models and products.</p>
+                    <p>We always adhere to the principle of survival by quality and development by innovation, committed to providing customers with safe and reliable braking solutions. Our products are widely used in passenger vehicles, commercial vehicles, and various other vehicle types.</p>
+                    <p>Hengfeng produces with heart, focuses on quality, pays attention to customer delivery satisfaction, and the customer's mission must be achieved. With decades of experience in manufacturing and exporting, we can solve your problems in design, technique, manufacturing orders, shipping, etc.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Modern Manufacturing Facility" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Product Catalogue</h2>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1619413517417-44d5b5d2b780?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Brake Pad Set" />
+                    </div>
+                    <div class="product-info">
+                        <h3>Brake Pad Set</h3>
+                        <div class="product-specs">
+                            <p><strong>FMSI:</strong> D1141</p>
+                            <p><strong>Position:</strong> Front Wheel Braking System</p>
+                            <p><strong>Brake System:</strong> ATE</p>
+                            <p><strong>Width:</strong> 155.1mm / 156.3mm</p>
+                            <p><strong>Height:</strong> 71.5mm / 78.5mm</p>
+                            <p><strong>Thickness:</strong> 20.3mm / 19.6mm</p>
+                        </div>
+                        <a href="#contact" class="btn">Get Quote</a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-badge">High Performance</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="High Performance Brake Pads" />
+                    </div>
+                    <div class="product-info">
+                        <h3>High Performance Brake Pads</h3>
+                        <div class="product-specs">
+                            <p><strong>Features:</strong> Designed for high-performance vehicles</p>
+                            <p><strong>Advantages:</strong> Low noise, high wear resistance</p>
+                            <p><strong>Standards:</strong> Complies with international quality standards</p>
+                            <p><strong>Applications:</strong> Racing, performance upgrades</p>
+                        </div>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge">Custom Service</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb364?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Custom Brake Pads" />
+                    </div>
+                    <div class="product-info">
+                        <h3>Custom Brake Pads</h3>
+                        <div class="product-specs">
+                            <p><strong>Service:</strong> Customized according to customer requirements</p>
+                            <p><strong>Options:</strong> Multiple friction coefficients available</p>
+                            <p><strong>Compatibility:</strong> Suitable for various vehicle models</p>
+                            <p><strong>Delivery:</strong> Fast delivery, quality guaranteed</p>
+                        </div>
+                        <a href="#contact" class="btn">Custom Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Why Choose Hengfeng</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Modern Factory</h3>
+                    <p>5,000 square meters modern production facility with advanced equipment and precision manufacturing</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔬</div>
+                    <h3>R&D Strength</h3>
+                    <p>Professional R&D team with industry-leading new product development speed</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Quality Assurance</h3>
+                    <p>Strict quality control systems meeting international standards and certifications</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Service</h3>
+                    <p>Products exported worldwide, providing professional service to global customers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Composition of Brake Pads -->
+    <section id="composition">
+        <div class="container">
+            <div class="section-title">
+                <h2>Composition of Brake Pads</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Brake Pad Structure" />
+                </div>
+                <div class="about-text">
+                    <p><strong>Brake pads</strong> are generally composed of <strong>steel plate</strong>, <strong>adhesive heat insulation layer</strong>, and <strong>friction block</strong>.</p>
+                    <p>The <strong>steel plate</strong> should be painted to prevent rust. The coating process uses SMT-4 furnace temperature tracker to detect the temperature distribution of the coating process to ensure quality.</p>
+                    <p>The <strong>insulation layer</strong> is made of non-heat-conductive materials for heat insulation and noise reduction.</p>
+                    <p>The <strong>friction block</strong> consists of friction materials and adhesives. When braking, it is pressed against the brake disc or brake drum to generate friction, thereby achieving vehicle deceleration and braking.</p>
+                    <p>We adopt advanced production processes and strict quality control to ensure that each brake pad meets high safety standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis of Abnormal Brake Noise -->
+    <section id="analysis" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Analysis of Abnormal Brake Noise</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>Abnormal brake noise</strong> is mainly the sound of friction between brake pad and brake disc.</p>
+                    <p>Many car owners will find that there is noticeable abnormal noise when they step on the brakes just after <strong>washing the car or after rain</strong>. This is because the brake disc surface has rust or moisture, causing changes in friction coefficient.</p>
+                    <p>Our brake pads are specially designed and formulated to effectively reduce abnormal noise and provide a smoother braking experience.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Lightly press the brake pedal several times during gentle driving to clear moisture and rust from the brake disc surface</li>
+                        <li>Use high-quality brake pads, such as Hengfeng brand products</li>
+                        <li>Regularly check the brake system to ensure correct installation</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Brake System Inspection" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- When to Replace Brake Pads -->
+    <section id="replacement">
+        <div class="container">
+            <div class="section-title">
+                <h2>When to Replace Brake Pads</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Brake Pad Replacement" />
+                </div>
+                <div class="about-text">
+                    <p>When the brake pad is <strong>worn, aged</strong> or <strong>brake failure</strong> occurs, it must be replaced in time, otherwise it may lead to <strong>longer braking distance</strong>, <strong>lower braking effect</strong>, and even cause <strong>potential safety hazards</strong>.</p>
+                    <p><strong>Replacement Criteria:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Brake pad thickness <strong>less than 3mm</strong> requires replacement</li>
+                        <li>Abnormal noise or vibration occurs</li>
+                        <li>Significant increase in braking distance</li>
+                        <li>Abnormal brake pedal feel</li>
+                    </ul>
+                    <p>It is recommended to regularly check the thickness of the brake pad, and select the genuine parts suitable for the vehicle model, which should be replaced by <strong>professionals</strong>.</p>
+                    <p>We provide a variety of high-quality brake pads to meet different vehicle models and driving needs, ensuring your driving safety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <div>
+                        <h3 style="color: #dc3545; margin-bottom: 20px; font-size: 24px;">📞 Contact Information</h3>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>Tel:</strong> 0086-318-533690</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>WhatsApp:</strong> +8618703287343</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>Email:</strong> 1453251963@qq.com</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>Address:</strong> Wuxiazhuang Village, Qinghan Town, Hengshui City, Hebei Province, China</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #dc3545; margin-bottom: 20px; font-size: 24px;">🏢 Company Information</h3>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>Company Name:</strong> Hengshui Hengfeng Friction Material Co., Ltd.</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>Established:</strong> 2015</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>Factory Area:</strong> 5,000 square meters</p>
+                        <p style="margin: 15px 0; font-size: 16px;"><strong>Main Business:</strong> Brake friction material R&D and production</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="font-size: 18px; color: #666; margin-bottom: 25px;">
+                        <strong>Hengfeng produces with heart, focuses on quality, pays attention to customer delivery satisfaction</strong><br>
+                        The customer's mission must be achieved
+                    </p>
+                    <a href="mailto:1453251963@qq.com" class="btn" style="font-size: 18px; padding: 15px 40px;">
+                        📧 Contact Us for Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Hengfeng</h3>
+                    <ul>
+                        <li><a href="#about">Company Profile</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#composition">Composition</a></li>
+                        <li><a href="#analysis">Brake Noise</a></li>
+                        <li><a href="#replacement">Replacement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Product Center</h3>
+                    <ul>
+                        <li><a href="#products">Brake Pad Sets</a></li>
+                        <li><a href="#products">High Performance</a></li>
+                        <li><a href="#products">Custom Products</a></li>
+                        <li><a href="#contact">Quote Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>📞 0086-318-533690</li>
+                        <li>📱 +8618703287343</li>
+                        <li>📧 1453251963@qq.com</li>
+                        <li>📍 Wuxiazhuang Village, Qinghan Town, Hengshui City, Hebei Province, China</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Hengshui Hengfeng Friction Material Co., Ltd. All Rights Reserved</p>
+                <p>衡水衡丰摩擦材料有限公司 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(220, 53, 69, 0.95), rgba(167, 30, 42, 0.95))';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #dc3545, #a71e2a)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

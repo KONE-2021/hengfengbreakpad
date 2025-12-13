@@ -30,10 +30,18 @@ This is the official website of Hengshui Hengfeng Friction Material Co., Ltd., s
 
 ## 访问网站 / Website Access
 
-网站部署在GitHub Pages上，可通过以下链接访问：
-The website is deployed on GitHub Pages and can be accessed via the following link:
+网站部署在GitHub Pages上，具有多语言支持：
+The website is deployed on GitHub Pages with multi-language support:
 
-[https://[your-username].github.io/hengfeng-brake-pads/](https://[your-username].github.io/hengfeng-brake-pads/)
+- **主页面 / Homepage**: [https://[your-username].github.io/hengfeng-brake-pads/home.html](https://[your-username].github.io/hengfeng-brake-pads/home.html)
+- **中文版 / Chinese**: [https://[your-username].github.io/hengfeng-brake-pads/index.html](https://[your-username].github.io/hengfeng-brake-pads/index.html)
+- **英文版 / English**: [https://[your-username].github.io/hengfeng-brake-pads/en.html](https://[your-username].github.io/hengfeng-brake-pads/en.html)
+
+## 语言切换 / Language Switching
+
+- 从主页面选择语言 / Select language from homepage
+- 或直接访问对应版本 / Or directly access specific versions
+- 每个页面都有语言切换按钮 / Each page has language switch button
 
 ## 联系信息 / Contact Information
 

@@ -63,9 +63,10 @@ git push -u origin main
 
 网站将在以下地址可用：
 Your website will be available at:
-```
-https://[你的GitHub用户名].github.io/hengfeng-brake-pads/
-```
+
+- **主页面 / Homepage**: `https://[你的GitHub用户名].github.io/hengfeng-brake-pads/home.html`
+- **中文版 / Chinese**: `https://[你的GitHub用户名].github.io/hengfeng-brake-pads/index.html`
+- **英文版 / English**: `https://[你的GitHub用户名].github.io/hengfeng-brake-pads/en.html`
 
 ## 一键部署脚本 / One-Click Deployment Script
 
