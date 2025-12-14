@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片测试页面 - 衡丰刹车片</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #dc3545;
+            margin-bottom: 40px;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .image-item {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .image-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .image-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .image-title {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+        .status {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .nav-links {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 24px;
+            background: #dc3545;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .nav-links a:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ 图片测试页面 / Image Test Page</h1>
+
+        <div class="image-grid">
+            <div class="image-item">
+                <img src="img/manufacturing-facility.jpg" alt="Manufacturing Facility" onerror="this.style.background='#ffebee'; this.alt='图片加载失败 / Image Load Failed'">
+                <div class="image-title">Manufacturing Facility<br>制造设施</div>
+            </div>
+
+            <div class="image-item">
+                <img src="img/factory-workshop.jpg" alt="Factory Workshop" onerror="this.style.background='#ffebee'; this.alt='图片加载失败 / Image Load Failed'">
+                <div class="image-title">Factory Workshop<br>工厂车间</div>
+            </div>
+
+            <div class="image-item">
+                <img src="img/brake-pads-product.jpg" alt="Brake Pads Product" onerror="this.style.background='#ffebee'; this.alt='图片加载失败 / Image Load Failed'">
+                <div class="image-title">Brake Pads Product<br>刹车片产品</div>
+            </div>
+        </div>
+
+        <div class="status" id="status">
+            🔄 正在检查图片状态... / Checking image status...
+        </div>
+
+        <div class="nav-links">
+            <a href="home.html">🏠 首页 / Home</a>
+            <a href="index.html">🇨🇳 中文版 / Chinese</a>
+            <a href="en.html">🇬🇧 英文版 / English</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查图片加载状态
+        function checkImages() {
+            const images = document.querySelectorAll('.image-item img');
+            let loadedCount = 0;
+            let errorCount = 0;
+            const totalCount = images.length;
+
+            images.forEach(img => {
+                if (img.complete && img.naturalHeight !== 0) {
+                    loadedCount++;
+                } else {
+                    img.addEventListener('load', () => {
+                        loadedCount++;
+                        updateStatus();
+                    });
+                    img.addEventListener('error', () => {
+                        errorCount++;
+                        updateStatus();
+                    });
+                }
+            });
+
+            function updateStatus() {
+                const statusEl = document.getElementById('status');
+                const percentage = Math.round((loadedCount / totalCount) * 100);
+
+                if (errorCount > 0) {
+                    statusEl.innerHTML = `⚠️ 部分图片加载失败 (${loadedCount}/${totalCount})<br>
+                    Some images failed to load (${loadedCount}/${totalCount})<br>
+                    <small>请检查img文件夹是否存在 / Please check if img folder exists</small>`;
+                    statusEl.style.background = 'linear-gradient(135deg, #ffc107, #ff9800)';
+                } else if (loadedCount === totalCount) {
+                    statusEl.innerHTML = `✅ 所有图片加载成功! (${loadedCount}/${totalCount})<br>
+                    All images loaded successfully! (${loadedCount}/${totalCount})`;
+                    statusEl.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                } else {
+                    statusEl.innerHTML = `🔄 加载中... (${loadedCount}/${totalCount})<br>
+                    Loading... (${loadedCount}/${totalCount})`;
+                }
+            }
+
+            // 初始状态更新
+            setTimeout(updateStatus, 100);
+        }
+
+        // 页面加载完成后检查
+        window.addEventListener('load', checkImages);
+    </script>
+</body>
+</html>
