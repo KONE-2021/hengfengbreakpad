@@ -33,7 +33,7 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 1000;
+            z-index: 999;
             background: linear-gradient(135deg, #dc3545, #c82333);
             border-radius: 50px;
             overflow: hidden;
@@ -59,6 +59,7 @@
             align-items: center;
             gap: 8px;
             border-radius: 50px;
+            white-space: nowrap;
         }
 
         .lang-btn::before {
@@ -89,6 +90,8 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         .header-main {
@@ -536,14 +539,38 @@
         }
 
         @media (max-width: 768px) {
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                padding-top: 0;
+                -webkit-overflow-scrolling: touch;
+                overflow-x: hidden;
+            }
+
+            header {
+                position: relative;
+                z-index: 997;
+            }
+
             .language-switcher {
+                position: fixed;
                 top: 10px;
                 right: 10px;
+                z-index: 998;
+                transform: scale(0.85);
+            }
+
+            .lang-btn {
+                padding: 10px 20px;
+                font-size: 14px;
             }
 
             nav ul {
                 flex-direction: column;
                 align-items: center;
+                padding: 10px 0;
             }
 
             nav li {
@@ -552,8 +579,23 @@
                 text-align: center;
             }
 
+            nav a {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
             .products-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .hero {
+                min-height: 500px;
+                padding: 20px 0;
+            }
+
+            .hero-content {
+                padding: 20px;
             }
 
             .hero h2 {
@@ -562,6 +604,25 @@
 
             .hero p {
                 font-size: 16px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
     </style>

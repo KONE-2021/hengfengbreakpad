@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端测试页面 - 衡丰刹车片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: #f5f5f5;
+            -webkit-overflow-scrolling: touch;
+            overflow-x: hidden;
+        }
+
+        /* 语言切换按钮 */
+        .language-switcher {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 998;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(220, 53, 69, 0.3);
+        }
+
+        .lang-btn {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 50px;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .lang-btn::before {
+            content: "🌐";
+            font-size: 14px;
+        }
+
+        .test-header {
+            background: linear-gradient(135deg, #dc3545, #a71e2a);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 997;
+        }
+
+        .test-header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .test-section {
+            background: white;
+            margin: 20px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            min-height: 200px;
+        }
+
+        .test-section h2 {
+            color: #dc3545;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .test-section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .test-button {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .test-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 20px;
+        }
+
+        .nav-links a {
+            background: #dc3545;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: #c82333;
+        }
+
+        .debug-info {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            margin: 20px;
+            line-height: 1.4;
+        }
+
+        .filler-content {
+            background: white;
+            margin: 20px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .filler-content h3 {
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 480px) {
+            .test-header h1 {
+                font-size: 20px;
+            }
+
+            .test-section {
+                margin: 15px;
+                padding: 20px;
+            }
+
+            .nav-links {
+                margin: 20px 15px;
+            }
+
+            .nav-links a {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 语言切换按钮 -->
+    <div class="language-switcher">
+        <a href="index.html" class="lang-btn">中文</a>
+    </div>
+
+    <!-- 测试头部 -->
+    <header class="test-header">
+        <h1>📱 移动端测试页面</h1>
+        <p>验证移动端滚动和显示效果</p>
+    </header>
+
+    <!-- 测试区域 -->
+    <div class="test-section">
+        <h2>🔍 滚动测试</h2>
+        <p><span class="status-indicator status-success">✅ 正常滚动</span> 如果页面能够正常滚动，说明修复成功</p>
+        <p>请尝试以下操作：</p>
+        <ul style="margin-left: 20px;">
+            <li>向上滚动查看更多内容</li>
+            <li>点击语言切换按钮</li>
+            <li>在不同屏幕尺寸下测试</li>
+        </ul>
+        <button class="test-button" onclick="scrollToBottom()">滚动到底部</button>
+        <button class="test-button" onclick="scrollToTop()">返回顶部</button>
+    </div>
+
+    <!-- 调试信息 -->
+    <div class="debug-info">
+        <strong>调试信息：</strong><br>
+        屏幕宽度: <span id="screen-width">-</span>px<br>
+        屏幕高度: <span id="screen-height">-</span>px<br>
+        用户代理: <span id="user-agent">-</span><br>
+        触摸支持: <span id="touch-support">-</span><br>
+        语言切换Z-index: 998<br>
+        Header Z-index: 997
+    </div>
+
+    <!-- 填充内容用于测试滚动 -->
+    <div class="filler-content">
+        <h3>📋 滚动测试内容 1</h3>
+        <p>这是用于测试移动端滚动的填充内容。在移动设备上，应该能够流畅地滚动查看所有内容。</p>
+        <p>如果之前存在内容被语言切换按钮遮挡的问题，现在应该已经解决了。</p>
+    </div>
+
+    <div class="filler-content">
+        <h3>🏭 公司信息</h3>
+        <p>衡水衡丰摩擦材料有限公司是一家专业的刹车片制造商，成立于2015年。</p>
+        <p>公司拥有5000平方米的现代化生产车间，专注于摩擦材料的研发和生产。</p>
+    </div>
+
+    <div class="filler-content">
+        <h3>📱 移动端优化</h3>
+        <p>本页面已针对移动端进行了以下优化：</p>
+        <ul>
+            <li>调整了语言切换按钮的z-index层级</li>
+            <li>优化了header的position属性</li>
+            <li>添加了touch滚动支持</li>
+            <li>改进了响应式布局</li>
+        </ul>
+    </div>
+
+    <div class="filler-content">
+        <h3>🧪 测试结果</h3>
+        <p>如果页面能够正常滚动，且语言切换按钮不会遮挡主要内容，则说明移动端问题已解决。</p>
+    </div>
+
+    <!-- 导航链接 -->
+    <div class="nav-links">
+        <a href="home.html">🏠 首页</a>
+        <a href="index.html">🇨🇳 中文版</a>
+        <a href="en.html">🇬🇧 英文版</a>
+        <a href="test-images.html">🖼️ 图片测试</a>
+    </div>
+
+    <script>
+        // 更新调试信息
+        function updateDebugInfo() {
+            document.getElementById('screen-width').textContent = window.innerWidth;
+            document.getElementById('screen-height').textContent = window.innerHeight;
+            document.getElementById('user-agent').textContent = navigator.userAgent.substring(0, 50) + '...';
+            document.getElementById('touch-support').textContent = 'ontouchstart' in window ? '支持' : '不支持';
+        }
+
+        // 滚动功能
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 页面加载时更新信息
+        window.addEventListener('load', updateDebugInfo);
+        window.addEventListener('resize', updateDebugInfo);
+
+        // 检测滚动问题
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function() {
+                console.log('滚动正常，当前位置:', window.scrollY);
+            }, 100);
+        });
+
+        // 检测触摸事件
+        if ('ontouchstart' in window) {
+            document.addEventListener('touchmove', function(e) {
+                // 确保触摸滚动正常工作
+                console.log('触摸滚动正常');
+            });
+        }
+    </script>
+</body>
+</html>
